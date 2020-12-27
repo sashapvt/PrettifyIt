@@ -6,21 +6,22 @@
     <DataAnnotationsValidator />
     <ValidationSummary />
 
-    <label for="text">Unformated text</label>
-    <InputTextArea id="text" @bind-Value="textInputModel.Text" class="InputTextArea" />
+    <InputTextArea id="text" @bind-Value="textInputModel.Text" class="InputTextArea" placeholder="Provide XML here..." />
 
     <button type="submit">Format</button>
 
+    <br /><br /><label hidden="@isHideFormatedResults">Formatted result:</label>
     <pre>@formatedResult</pre>
 </EditForm>
 
 @code {
     private TextInputModel textInputModel = new TextInputModel();
-
+    private bool isHideFormatedResults = true;
     private string formatedResult;
 
     private void HandleValidSubmit()
     {
+        isHideFormatedResults = false;
         formatedResult = textInputModel.Text;
     }
 }
