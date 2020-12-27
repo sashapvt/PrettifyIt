@@ -1,0 +1,26 @@
+﻿@page "/"
+
+<h1>XML formater</h1>
+
+<EditForm Model="@textInputModel" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <label for="text">Unformated text</label>
+    <InputTextArea id="text" @bind-Value="textInputModel.Text" class="InputTextArea" />
+
+    <button type="submit">Format</button>
+
+    <pre>@formatedResult</pre>
+</EditForm>
+
+@code {
+    private TextInputModel textInputModel = new TextInputModel();
+
+    private string formatedResult;
+
+    private void HandleValidSubmit()
+    {
+        formatedResult = textInputModel.Text;
+    }
+}
