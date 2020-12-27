@@ -1,12 +1,12 @@
 ﻿@page "/"
 
-<h1>XML formater</h1>
+<h1>JSON/XML formater</h1>
 
 <EditForm Model="@textInputModel" OnValidSubmit="@HandleValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
 
-    <InputTextArea id="text" @bind-Value="textInputModel.Text" class="InputTextArea" placeholder="Provide XML here..." />
+    <InputTextArea id="text" @bind-Value="textInputModel.Text" class="InputTextArea" rows="10" placeholder="Provide JSON or XML here..." />
 
     <button type="submit">Format</button>
 
@@ -22,6 +22,7 @@
     private void HandleValidSubmit()
     {
         isHideFormatedResults = false;
-        formatedResult = Formaters.FormatXml(textInputModel.Text);
+
+        formatedResult = Formaters.Format(textInputModel.Text);
     }
 }
