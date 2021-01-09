@@ -9,7 +9,7 @@ namespace PrettifyIt.Shared
     public class TextInputModel
     {
         [Required]
-        [StringLength(1000000, ErrorMessage = "Text is too long.")]
+        [StringLength(5000000, ErrorMessage = "Text is too long.")]
         public string Text { get; set; }
     }
 }
